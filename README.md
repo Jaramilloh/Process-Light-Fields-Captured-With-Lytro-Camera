@@ -1,7 +1,7 @@
 # Process-Light-Fields-Captured-with-Lytro-Camera-via-Light-Field-Toolbox-for-MATLAB
-This repository contains the source code and materials for processing light fields captured with a Lytro Camera, the [Light Field Toolbox for MATLAB](https://dgd.vision/Tools/LFToolbox/) (with license (LFToolbox0.5/LICENSE.txt)) is implemented in order to obtain the sub-aperture images or the angular matrix at some fixed spatial point.
+This repository contains the source code and materials for processing light fields captured with a Lytro Camera, the [Light Field Toolbox for MATLAB](https://dgd.vision/Tools/LFToolbox/) (*with [license](LFToolbox0.5/LICENSE.txt)*) is implemented in order to obtain the sub-aperture images, the angular matrix at some fixed spatial point or all spatial points.
 
-Moreover, this repository only contains two captured light fields, the full dataset is avalible at [asdasd](asdasd) [1]
+Moreover, this repository only contains two captured light fields as examples, the full dataset is avalible at [asdasd](asdasd) [1].
 ***Authors: Juan Felipe Jaramillo Hernández, María Fernanda Hernández Baena***
 
 Contents Table
