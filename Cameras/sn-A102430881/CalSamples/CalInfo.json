@@ -1,0 +1,122 @@
+{
+	"GeneratedByInfo": {
+		"mfilename": "LFCalRefine",
+		"time": "06Feb2021_105437",
+		"VersionStr": "v0.5.1"
+	},
+	"LensletGridModel": {
+		"HSpacing": 10.00389654,
+		"VSpacing": 8.665739129,
+		"HOffset": 2.078570847,
+		"VOffset": 0.01131709153,
+		"Rot": -0.0009065416575,
+		"Orientation": "horz",
+		"FirstPosShiftRow": 2,
+		"UMax": 328,
+		"VMax": 379
+	},
+	"EstCamIntrinsicsH": [
+		[0.0003505454812,0,-5.422081793e-05,0,0.008198682519],
+		[0,0.0003222373327,0,-6.361750857e-05,0.01015390263],
+		[-0.00139509241,0,0.001884420936,0,-0.3496694234],
+		[0,-0.001254887629,0,0.001892777761,-0.3520984489],
+		[0,0,0,0,1]
+	],
+	"EstCamDistortionV": [0.1807141378,-0.4991099899,1.94084239,-0.01095367927,-0.001605230345],
+	"EstCamPosesV": [
+		[-0.04438871248,-0.03887448431,0.2133756789,-0.3174645011,-0.04037786485,0.004431811096],
+		[-0.04283144955,-0.03725474286,0.1859349589,-0.04340081115,-0.02254908642,0.005615279936],
+		[-0.03509665321,-0.03736065497,0.1670336634,-0.1151431036,-0.4767469992,0.02853888572],
+		[-0.04218397754,-0.04382378051,0.1818523286,-0.08133025475,-0.01611858598,0.007256333042],
+		[-0.04970352776,-0.0269087759,0.2102970158,-0.07186334194,0.01981317491,-0.1832498561],
+		[-0.0399944985,-0.03361111078,0.1850044756,0.2048065778,-0.0272305503,0.02275418451],
+		[-0.02656956396,-0.05197906256,0.2239165636,-0.09314481527,0.01672907908,0.434710462],
+		[-0.04344483922,-0.03566811606,0.197220367,-0.1211445215,0.161457025,0.005677145466],
+		[-0.04164688723,-0.03927968255,0.1998804836,-0.1546347037,-0.04040228939,0.01698910024]
+	],
+	"CamInfo": {
+		"CamSerial": "A102430881",
+		"CamModel": "F01",
+		"FocusStep": 600,
+		"ZoomStep": 982
+	},
+	"CalOptions": {
+		"ExpectedCheckerSize": [22,19],
+		"ExpectedCheckerSpacing_m": [0.0041,0.004],
+		"LensletBorderSize": 1,
+		"SaveResult": 1,
+		"ForceRedoCornerFinding": 0,
+		"ForceRedoInit": 0,
+		"ShowDisplay": 1,
+		"CalInfoFname": "CalInfo.json",
+		"Phase": "Refine",
+		"LFFnamePattern": "%s__Decoded.mat",
+		"CheckerCornersFnamePattern": "%s__CheckerCorners.mat",
+		"MinSubimageWeight": 13107.2,
+		"CheckerInfoFname": "CheckerboardCorners.mat",
+		"FileList": [
+				"raw10__CheckerCorners.mat",
+				"raw1__CheckerCorners.mat",
+				"raw2__CheckerCorners.mat",
+				"raw3__CheckerCorners.mat",
+				"raw4__CheckerCorners.mat",
+				"raw5__CheckerCorners.mat",
+				"raw6__CheckerCorners.mat",
+				"raw7__CheckerCorners.mat",
+				"raw8__CheckerCorners.mat"
+		],
+		"ValidSubimageCount": [105,105,105,105,105,105,105,105,105],
+		"OptTolX": 5e-05,
+		"OptTolFun": 0,
+		"LFSize": [11,11,379,379,4],
+		"IJVecToOptOver": [2,3,4,5,6,7,8,9,10],
+		"IntrinsicsToOpt": [1,3,7,9,11,13,17,19],
+		"DistortionParamsToOpt": [1,2,3,4,5],
+		"PreviousCamIntrinsics": [
+			[0.0003749020038,0,-5.344815247e-05,0,0.007905736947],
+			[0,0.000345953375,0,-4.485720419e-05,0.006447148545],
+			[-0.001557552034,0,0.001912405476,0,-0.3540117282],
+			[0,-0.001404321431,0,0.001824576481,-0.3382436028],
+			[0,0,0,0,1]
+		],
+		"PreviousCamDistortion": [0.1556569228,-0.0001302811597,0.06328713471,-0.0004791443033,-0.0008925229752],
+		"NPoses": 9
+	},
+	"DecodeOptions": {
+		"OptionalTasks": null,
+		"ColourHistThresh": 0.01,
+		"WhiteImageDatabasePath": "Cameras\\WhiteImageDatabase.mat",
+		"WhiteProcDataFnameExtension": ".grid.json",
+		"WhiteRawDataFnameExtension": ".RAW",
+		"MetadataFnamePattern": "_metadata.json",
+		"SerialdataFnamePattern": "_private_metadata.json",
+		"DemosaicOrder": "bggr",
+		"WhiteImageInfo": {
+			"ZoomStep": 860,
+			"FocusStep": 707,
+			"ExposureDuration": 0.009999999776,
+			"CamSerial": "A102430881",
+			"CamModel": "F01",
+			"Fname": "sn-A102430881\\T1CALIB__MOD_0055.TXT"
+		},
+		"LevelLimits": [168,4095],
+		"ColourMatrix": [
+			[3.111582756,-0.3629055917,0.07896701247],
+			[-1.939392924,1.640880346,-1.155804276],
+			[-0.1721898615,-0.2779748142,2.076837301]
+		],
+		"ColourBalance": [1.07421875,1,1.22265625],
+		"Gamma": 0.6454920687,
+		"ResampMethod": "fast",
+		"Precision": "single",
+		"DoDehex": 1,
+		"DoSquareST": 1,
+		"NColChans": 3,
+		"NWeightChans": 1,
+		"OutputScale": [1.199532597,1.199532597,1.154700538,1.154700538]
+	},
+	"ReprojectionError": {
+		"SSE": 0.00690686246,
+		"RMSE": 0.0001505526828
+	}
+}
