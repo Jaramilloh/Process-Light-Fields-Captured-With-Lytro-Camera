@@ -69,18 +69,18 @@ Therefore, the program will decodify each .lfp file at [LF folder](LF/), correct
 
 ### Angular Portion Extraction
 
-Also, some part of the code will extract an [angular portion](LF/Angular) of 9x9 pixels (since 9x9 is the angular resolution of Lytro First Generation) and a downsampled angular portions of 5x5 pixels for different fixed spatial points. Feel free to use it or modify it as well.
+[angular_extraction.m](angular_extraction.m) will extract an [angular portion](LF/Angular) of 9x9 pixels (*since 9x9 is the effective angular resolution of Lytro First Generation, although 11x11 is the maxium resolution considering the pixels inside the vignetting len's region*) and a downsampled angular portions of 5x5 pixels for different fixed spatial points. Feel free to use it or modify it as well.
 
-**Angular Portion at (0, 0) spatial coordinate**
+**Angular Portion of 9x9 rays at (0, 0) spatial coordinate**
 
 ![angular portion](LF/Angular/IMG_0001/IMG_0001_01.png)
 
-**Downsampled Angular Portion at (0, 0) spatial coordinate**
+**Downsampled Angular Portion of 5x5 at (0, 0) spatial coordinate**
 
 ![angular portion](LF/Angular/IMG_0001_downsampled/IMG_0001_01.png)
 
 ### Spatial Downsampling
-[downscaling.m](downscaling.m) is a code with the purpose to downsample the sub-aperture images of each light field. It has nothing special on it.
+[downscaling.m](downscaling.m) is a code with the purpose to downsample the sub-aperture images of each light field implementing an anttialiasing frequency filter in order to downsampling in a factor of 4.
 
 ### Video Maker
 [video_maker.py](video_maker.py) is a code to convert the sub-aperture images sequences into a video format, just for practical visualization of each light field as a sequence of images.
