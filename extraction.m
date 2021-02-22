@@ -167,7 +167,7 @@ for j = 1:( length( fileList ) )
                 for t = 2:40:376
 
                     % The name of the file to save is defined
-                    cent = fix( cont/100 );
+                    cen = fix( cont/100 );
                     dec = fix( cont/10 );
                     und = mod( cont,10 );
                     aux = append( folder, '/Angular/',fileList(j).name(1:8),'/',fileList(j).name(1:8) );
@@ -175,7 +175,7 @@ for j = 1:( length( fileList ) )
                     sbname = append(aux, auxx);
 
                     % Obtain a portion of 11x11 angular pixels at spatial position 's, t'
-                    I = LFDisp( LF(:,:,t,s,:) );
+                    I = LFDisp( LF(2:10,2:10,t,s,:) );
                     F = I;        
                     % The subaperture image is saved
                     imwrite( F, sbname );

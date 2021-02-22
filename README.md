@@ -59,7 +59,7 @@ Therefore, the program will decodify each .lfp file at [LF folder](LF/), correct
 
 ![video](LF/Videos/IMG_0001_video_gif.gif)
 
-Also, some part of the code will extract an [angular portion](LF/Angular) of 11x11 pixels (since 11x11 is the angular resolution of Lytri First Generation) and a downsampled angular portions of 5x5 pixels for different fixed spatial points. Feel free to use it or modify it as well.
+Also, some part of the code will extract an [angular portion](LF/Angular) of 9x9 pixels (since 9x9 is the angular resolution of Lytro First Generation) and a downsampled angular portions of 5x5 pixels for different fixed spatial points. Feel free to use it or modify it as well.
 
 **Angular Portion at (0, 0) spatial coordinate**
 
