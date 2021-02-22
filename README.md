@@ -1,7 +1,7 @@
 # Process-Light-Fields-Captured-with-Lytro-Camera-via-Light-Field-Toolbox-for-MATLAB
-This repository contains the source code and materials for processing light fields captured with a Lytro Camera, the [Light Field Toolbox for MATLAB](https://dgd.vision/Tools/LFToolbox/) (*with [license](LFToolbox0.5/LICENSE.txt)*) is implemented in order to obtain the sub-aperture images, the angular matrix at some fixed spatial point or all spatial points.
+This repository contains the source code and materials for processing light fields captured with a Lytro Camera, the [Light Field Toolbox for MATLAB](https://dgd.vision/Tools/LFToolbox/) (*with [license](LFToolbox0.5/LICENSE.txt) [1]*) is implemented in order to obtain the sub-aperture images, the angular matrix at some fixed spatial point or all spatial points.
 
-Moreover, this repository only contains two captured light fields as examples, the full dataset is avalible at [asdasd](asdasd) [1].
+Moreover, this repository only contains two captured light fields as examples, the full dataset is avalible at [asdasd](asdasd) [2].
 
 ***Authors: Juan Felipe Jaramillo Hernández, María Fernanda Hernández Baena***
 
@@ -11,6 +11,7 @@ Contents Table
 <!--ts-->
    * [Process Light Fields Captured with Lytro Camera via Light Field Toolbox for MATLAB](#Process-Light-Fields-Captured-with-Lytro-Camera-via-Light-Field-Toolbox-for-MATLAB)
    * [Contents Table](#Contents-Table)
+   * [Light Field Toolbox](#Light-Field-Toolbox)
    * [Calibration](#Calibration)
    * [Extraction](#Extraction)
    * [Downsampling](#Downsampling)
@@ -18,11 +19,13 @@ Contents Table
    * [References](#References)
 <!--te-->
 
+### Light Field Toolbox
+First of all, you need to donwload the zipped [Light Field Toolbox for MATLAB](https://dgd.vision/Tools/LFToolbox/). Once donwloaded, please unzip the content at (LFToolbox0.5) in order to use the algorithims implemented in this repository.
 
 ### Calibration
 In order to obtain the calibration data from you camera, it is required some previous steps:
 
-The first one, is to locate the calibration files from you Lytro camera, this files are called *data.C.0, data.C.1, data.C.2, data.C.3* and usually, are located at *AppData/Local/Lytro/cameras*. Since each file is around 300 MB, these files are not contained in this repository. You'll extract white image calibration data from those. Once you found these files, place them at [Camera's folder](Cameras/sn-A102430881/). Then, you'll able to extract the white image calibration data.
+The first one, is to locate the calibration files from you Lytro camera, this files are called *data.C.0, data.C.1, data.C.2, data.C.3* and are usually located at *AppData/Local/Lytro/cameras*. Since each file is around 300 MB, these files are not contained in this repository. You'll extract white image calibration data from those. Once you found these files, place them at [Camera's folder](Cameras/sn-A102430881/).
 
 The second step is to obtain the camera's matrix and distortion parameters in order to successfully rectify the captured light fields. For this, you have to capture some calibration light fields of some checkerboard, the more corners and smallest squares, the better results. This repository contains 9 [calibration light fields](Cameras/sn-A102430881/CalSamples) captured on a checkerboard with 19x22 cornes and 4mm square size. Save calibration light fields at Cameras/sn-A102430881/CalSamples if you want to use your own samples.
 
@@ -41,3 +44,4 @@ Once your camera calibration data and your calibration light fields are on place
 
 ### References
 [1] Light Field Toolbox for Matlab, available at https://dgd.vision/Tools/LFToolbox/
+[2] our lightfield dataset link
