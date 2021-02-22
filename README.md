@@ -49,6 +49,8 @@ Therefore, the program will decodify each .lfp file at [LF folder](LF/), correct
 **Mosaic Image**
 ![mosaic](LF/Mosaicos/IMG_0001_stuv.png)
 
+**Angular Portion at (0, 0) spatial coordinate**
+![angular portion](LF/Angular/IMG_0001/IMG_0001_01.png)
 
 ### Downsampling
 
