@@ -33,9 +33,10 @@ The second step is to obtain the camera's matrix and distortion parameters in or
 
 Once your camera calibration data and your calibration light fields are on place, you'll just need to run [calibration.m](calibration.m) to adquire the calibration data. This program will automatically save the next files in their corresponding paths: [CallInfo.json](Cameras/sn-A102430881/CalSamples/CalInfo.json), [CalibrationDatabase.mat](Cameras/CalibrationDatabase.mat) for rectify purposes and [WhiteImageDatabase.mat](Cameras/WhiteImageDatabase.mat) for decoding and color correction on the light fields. Before extracting the previous files, you have to specify via GUI the [Light Field Toolbox path](LFToolbox0.5). This repository contains both rectify and decoding calibration data already extracted, so feel free to use them as well.
 
-**Calibration Light Field Thumb and Rectified Thumb**
-
+**Calibration Light Field Thumb**
 ![Calibration](Cameras/sn-A102430881/CalSamples/raw2__Decoded_Thumb.png)
+
+**Calibration Light Field Rectified Thumb**
 ![Calibration Rectified](Cameras/sn-A102430881/CalSamples/raw2_rectified_Decoded_Thumb.png)
 
 ### Extraction
@@ -61,7 +62,7 @@ Also, some part of the code will extract an [angular portion](LF/Angular) of 11x
 ![angular portion](LF/Angular/IMG_0001_downsampled/IMG_0001_01.png)
 
 ### Downsampling
-[downsampling.m](downsampling.m) is a code with the purpose to downsample the sub-aperture images of each light field. It has nothing special on it.
+[downscaling.m](downscaling.m) is a code with the purpose to downsample the sub-aperture images of each light field. It has nothing special on it.
 
 ### Video Maker
 [video_maker.py](video_maker.py) is a code to convert the sub-aperture images sequences into a video format, just for practical visualization of each light field as a sequence of images.
