@@ -11,7 +11,7 @@ Contents Table
 <!--ts-->
    * [Process Light Fields Captured with Lytro Camera via Light Field Toolbox for MATLAB](#Process-Light-Fields-Captured-with-Lytro-Camera-via-Light-Field-Toolbox-for-MATLAB)
    * [Contents Table](#Contents-Table)
-   * [Light Field Toolbox](#Light-Field-Toolbox)
+   * [Light Field Toolbox For MATLAB](#Light-Field-Toolbox-For-MATLAB)
    * [Calibration](#Calibration)
    * [Extraction](#Extraction)
    * [Downsampling](#Downsampling)
@@ -19,8 +19,10 @@ Contents Table
    * [References](#References)
 <!--te-->
 
-### Light Field Toolbox
-First of all, you need to donwload the zipped [Light Field Toolbox for MATLAB](https://dgd.vision/Tools/LFToolbox/). Once donwloaded, please unzip the content at (LFToolbox0.5) in order to use the algorithims implemented in this repository.
+### Light Field Toolbox For MATLAB
+The material in this repository wouldn't be possible without the [Light Field Toolbox for MATLAB](https://dgd.vision/Tools/LFToolbox/) [1], who may concern, who may concern,  my deepest thanks for making possible the processing of light fields.
+
+First of all, you need to donwload the zipped [Light Field Toolbox for MATLAB](https://dgd.vision/Tools/LFToolbox/) [1]. Once donwloaded, please unzip the content in its corresponding [path](LFToolbox0.5) in order to use the algorithims implemented in this repository.
 
 ### Calibration
 In order to obtain the calibration data from you camera, it is required some previous steps:
