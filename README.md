@@ -41,7 +41,7 @@ Once your camera calibration data and your calibration light fields are on place
 ### Extraction
 Once calibration data is available, you can proceed to processing your own captured light fields. Place these light fields at the [LF folder](LF/). Then, you just have to run [extraction.m](extraction.m). This program will ask you first to select the [Light Field Toolbox path](LFToolbox0.5), then, it will ask you to select the [LF folder path](LF/), finally, it will ask you to select the [CallInfo.json file's path](Cameras/sn-A102430881/CalSamples/CalInfo.json).
 
-Therefore, the program will decodify each .lfp file at [LF folder](LF/), correcting the color on it and rectifying the scene. Then, it will extract a [mosaic](LF/Mosaicos/) image and the [sub-aperture images](LF/Frames) as well. Also, some part of the code will extract [angular portions](LF/Angular) for fixed spatial points, in any case, feel free to use it as well or modify wharever you want.
+Therefore, the program will decodify each .lfp file at [LF folder](LF/), correcting the color on it and rectifying the scene. Then, it will extract a [mosaic](LF/Mosaicos/) image and the [sub-aperture images](LF/Frames) as well.
 
 **Light Field Central View Thumb (Color corrected and rectified)**
 ![LF_thumb](LF/IMG_0001__Decoded_Thumb.png)
@@ -49,12 +49,22 @@ Therefore, the program will decodify each .lfp file at [LF folder](LF/), correct
 **Mosaic Image**
 ![mosaic](LF/Mosaicos/IMG_0001_stuv.png)
 
+**Sub-aperture Images as Sequence of Images**
+![video](LF/Videos/IMG_0001_video_gif.gif)
+
+Also, some part of the code will extract an [angular portion](LF/Angular) of 11x11 pixels (since 11x11 is the angular resolution of Lytri First Generation) and a downsampled angular portions of 5x5 pixels for different fixed spatial points. Feel free to use it or modify it as well.
+
 **Angular Portion at (0, 0) spatial coordinate**
 ![angular portion](LF/Angular/IMG_0001/IMG_0001_01.png)
 
+**Downsampled Angular Portion at (0, 0) spatial coordinate**
+![angular portion](LF/Angular/IMG_0001_downsampled/IMG_0001_01.png)
+
 ### Downsampling
+[downsampling.m](downsampling.m) is a code with the purpose to downsample the sub-aperture images of each light field. It has nothing special on it.
 
 ### Video Maker
+[video_maker.py](video_maker.py) is a code to convert the sub-aperture images sequences into a video format, just for practical visualization of each light field as a sequence of images.
 
 ### References
 [1] Light Field Toolbox for Matlab, available at https://dgd.vision/Tools/LFToolbox/
