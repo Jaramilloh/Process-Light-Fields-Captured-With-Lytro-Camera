@@ -22,11 +22,11 @@ Contents Table
 ### Calibration
 In order to obtain the calibration data from you camera, it is required some previous steps:
 
-    The first one, is to locate the calibration files from you Lytro camera, this files are called *data.C.0, data.C.1, data.C.2, data.C.3* and usually, are located at *AppData/Local/Lytro/cameras*. Since each file is around 300 MB, these files are not contained in this repository. You'll extract white image calibration data from those. Once you found these files, place them at [Camera's folder](Cameras/sn-A102430881/). Then, you'll able to extract the white image calibration data.
+The first one, is to locate the calibration files from you Lytro camera, this files are called *data.C.0, data.C.1, data.C.2, data.C.3* and usually, are located at *AppData/Local/Lytro/cameras*. Since each file is around 300 MB, these files are not contained in this repository. You'll extract white image calibration data from those. Once you found these files, place them at [Camera's folder](Cameras/sn-A102430881/). Then, you'll able to extract the white image calibration data.
 
-    The second step is to obtain the camera's matrix and dirtotion parameters, in order to rectify captured light fields. For this, you have to capture some calibration light fields of some checkerboard, more the corners in it with less size, the better results. This repository contains 9 [calibration light fields](Cameras/sn-A102430881/CalSamples) captured on a checkerboard with 19x22 cornes with 4mm size. If you want to use your own calibration samples, then remember to save them at Cameras/sn-A102430881/CalSamples.
+The second step is to obtain the camera's matrix and dirtotion parameters, in order to rectify captured light fields. For this, you have to capture some calibration light fields of some checkerboard, more the corners in it with less size, the better results. This repository contains 9 [calibration light fields](Cameras/sn-A102430881/CalSamples) captured on a checkerboard with 19x22 cornes with 4mm size. If you want to use your own calibration samples, then remember to save them at Cameras/sn-A102430881/CalSamples.
 
-    Once your camera calibration data and your calibration light fields are on place, you'll need to run [calibration.m](calibration) 
+Once your camera calibration data and your calibration light fields are on place, you'll need to run [calibration.m](calibration) 
 
 
 
