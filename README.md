@@ -5,12 +5,12 @@ Moreover, this repository only contains two captured light fields as examples, t
 
 ***Authors: Juan Felipe Jaramillo Hernández, María Fernanda Hernández Baena***
 
-Contents Table
+Table of Contents
 =================
 
 <!--ts-->
    * [Process Light Fields Captured with Lytro Camera via Light Field Toolbox for MATLAB](#Process-Light-Fields-Captured-with-Lytro-Camera-via-Light-Field-Toolbox-for-MATLAB)
-   * [Contents Table](#Contents-Table)
+   * [Table of Contents](#Table-of-Contents)
    * [Light Field Toolbox For MATLAB](#Light-Field-Toolbox-For-MATLAB)
    * [Calibration Data](#Calibration-Data)
    * [Sub-aperture Images Extraction](#Sub-aperture-Images-Extraction)
