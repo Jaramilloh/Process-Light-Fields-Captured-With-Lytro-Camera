@@ -73,11 +73,11 @@ Therefore, the program will decodify each .lfp file at [LF folder](LF/), correct
 
 **Angular Portion of 9x9 rays at (0, 0) spatial coordinate**
 
-![angular portion](LF/Angular/IMG_0001/IMG_0001_01.png)
+![angular portion](LF/Angular/IMG_0001/IMG_0001_001.png)
 
 **Downsampled Angular Portion of 5x5 at (0, 0) spatial coordinate**
 
-![angular portion](LF/Angular/IMG_0001_downsampled/IMG_0001_01.png)
+![angular portion](LF/Angular/IMG_0001_downsampled/IMG_0001_001.png)
 
 ### Spatial Downsampling
 [downscaling.m](downscaling.m) is a code with the purpose to downsample the sub-aperture images of each light field implementing an anttialiasing frequency filter in order to downsampling in a factor of 4.
