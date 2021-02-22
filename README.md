@@ -34,9 +34,11 @@ The second step is to obtain the camera's matrix and distortion parameters in or
 Once your camera calibration data and your calibration light fields are on place, you'll just need to run [calibration.m](calibration.m) to adquire the calibration data. This program will automatically save the next files in their corresponding paths: [CallInfo.json](Cameras/sn-A102430881/CalSamples/CalInfo.json), [CalibrationDatabase.mat](Cameras/CalibrationDatabase.mat) for rectify purposes and [WhiteImageDatabase.mat](Cameras/WhiteImageDatabase.mat) for decoding and color correction on the light fields. Before extracting the previous files, you have to specify via GUI the [Light Field Toolbox path](LFToolbox0.5). This repository contains both rectify and decoding calibration data already extracted, so feel free to use them as well.
 
 **Calibration Light Field Thumb**
+
 ![Calibration](Cameras/sn-A102430881/CalSamples/raw2__Decoded_Thumb.png)
 
 **Calibration Light Field Rectified Thumb**
+
 ![Calibration Rectified](Cameras/sn-A102430881/CalSamples/raw2_rectified_Decoded_Thumb.png)
 
 ### Extraction
@@ -44,21 +46,27 @@ Once calibration data is available, you can proceed to processing your own captu
 
 Therefore, the program will decodify each .lfp file at [LF folder](LF/), correcting the color on it and rectifying the scene. Then, it will extract a [mosaic](LF/Mosaicos/) image and the [sub-aperture images](LF/Frames) as well.
 
+
 **Light Field Central View Thumb (Color corrected and rectified)**
+
 ![LF_thumb](LF/IMG_0001__Decoded_Thumb.png)
 
 **Mosaic Image**
+
 ![mosaic](LF/Mosaicos/IMG_0001_stuv.png)
 
 **Sub-aperture Images as Sequence of Images**
+
 ![video](LF/Videos/IMG_0001_video_gif.gif)
 
 Also, some part of the code will extract an [angular portion](LF/Angular) of 11x11 pixels (since 11x11 is the angular resolution of Lytri First Generation) and a downsampled angular portions of 5x5 pixels for different fixed spatial points. Feel free to use it or modify it as well.
 
 **Angular Portion at (0, 0) spatial coordinate**
+
 ![angular portion](LF/Angular/IMG_0001/IMG_0001_01.png)
 
 **Downsampled Angular Portion at (0, 0) spatial coordinate**
+
 ![angular portion](LF/Angular/IMG_0001_downsampled/IMG_0001_01.png)
 
 ### Downsampling
