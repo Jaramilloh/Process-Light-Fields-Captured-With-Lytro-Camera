@@ -94,7 +94,7 @@ for j = 1:( length( fileList ) )
                     auxx = append( '_',string(cen),string(dec),string(und),'.png' );
                     sbname = append(aux, auxx);
 
-                    % Obtain a portion of 11x11 angular pixels at spatial position 's, t'
+                    % Obtain a portion of 9x9 angular pixels at spatial position 's, t'
                     I = LFDisp( LF(2:10,2:10,t,s,:) );
                     F = I;        
                     % The subaperture image is saved
@@ -125,9 +125,26 @@ for j = 1:( length( fileList ) )
                     auxx = append( '_',string(cen),string(dec),string(und),'.png' );
                     sbname = append(aux, auxx);
 
-                    % Obtain a portion of 5x5 angular pixels at spatial position 's, t'
-                    I = LFDisp( LF(4:8,4:8,t,s,:) );
-                    F = I;
+                    % Obtain a portion of 9x9 angular pixels at spatial position 's, t'
+                    I = LFDisp( LF(2:10,2:10,t,s,:) );
+                            
+                    % In order to obtain an angular matrix of 5x5, it is necesary to upsample, then donwsample the sample       
+                    Iup = imresize(I,5);
+
+                    % The cutoff frequency is calculated to filter the image,
+                    % considering Nyquist's Theorem. A Gaussian Filter is implemented
+                    K = 9;
+                    sigmaf = (1/(2*K))*45; % Sigma in frequency
+                    sigma = 45/(sigmaf*2*pi); % Sigma in space
+
+                    % The image is filtered in the frequency domain at the
+                    % specific cutoff frequency
+                    J = imgaussfilt( Iup, sigma, 'FilterSize', 45, 'FilterDomain', 'frequency' );
+
+                    % The image is subsampled by a factor K
+                    Jdown = J(1:K:end,1:K:end,:);
+                    
+                    F = Jdown;
                     % The subaperture image is saved
                     imwrite( F, sbname );
                     cont = cont + 1;
