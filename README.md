@@ -84,7 +84,7 @@ Also, it will synthesize the complete original light field structure arranged by
 
 **Angular-Spatial Downsampled Light Field Structure stuv**
 
-![LF2](LF/LF_stuv/IMG_0001/IMG_0001_asdownsampled_stuv.png)
+![LF2](LF/LF_stuv/IMG_0001_asdownsampled/IMG_0001_asdownsampled_stuv.png)
 
 Moreover, this code will process the sub-aperture images of each light field by spatial downsampling it by some given factor, therefore, angular downsampling it by some factor given by the original angular resolution and the desired downsampled angular resolution. Since we're implementing an antialising frequency filter for each downsampling process, this code will take serious time processing each light field.
 
