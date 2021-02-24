@@ -46,7 +46,7 @@ Once your camera calibration data and your calibration light fields are on place
 ![Calibration Rectified](Cameras/sn-A102430881/CalSamples/raw2_rectified_Decoded_Thumb.png)
 
 ## Sub-aperture Images Extraction
-Once calibration data is available, you can proceed to process your own captured light fields. Place these light fields at the [LF folder](LF/). Then, you just have to run [spatial_extraction.m](spatial_extraction.m). 
+Once calibration data is available, you can proceed to process your own captured light fields. Place these light fields at the [LF folder](LF/). Then, you just have to run [subimgs_extraction.m](subimgs_extraction.m). 
 
 This program will ask you first to select the [Light Field Toolbox path](LFToolbox0.5), then, it will ask you to select the [LF folder path](LF/), finally, it will ask you to select the [CallInfo.json file's path](Cameras/sn-A102430881/CalSamples/CalInfo.json).
 
@@ -90,25 +90,11 @@ Moreover, this code will process the sub-aperture images of each light field by 
 
 ## Other Minor Processing Options
 
-### Angular Portion Extraction
-
-[angular_extraction.m](angular_extraction.m) will extract an [angular portion](LF/Angular) of 9x9 pixels (*since 9x9 is the effective angular resolution of Lytro First Generation, although 11x11 is the maxium resolution considering the pixels inside the vignetting len's region*) and a downsampled angular portions of 5x5 pixels for different fixed spatial points. Feel free to use it or modify it as well.
-
-**Angular Portion of 9x9 rays at (0, 0) spatial coordinate**
-
-![angular portion](LF/Angular/IMG_0001/IMG_0001_001.png)
-
-**Downsampled Angular Portion of 5x5 at (0, 0) spatial coordinate**
-
-![angular portion](LF/Angular/IMG_0001_downsampled/IMG_0001_001.png)
-
-### Spatial Downsampling
-[spatial_downsampling.m](spatial_downsampling.m) is a code with the purpose to downsample the sub-aperture images of each light field implementing an anttialiasing frequency filter in order to downsampling in a factor of 4, The results are saved at [LF/Frames](LF/Frames), ending with '_downsampled'.
-
 ### Video Maker
 [video_maker.py](video_maker.py) is a code to convert the sub-aperture images sequences into a video format, just for practical visualization of each light field as a sequence of images. This code will take every folder inside [LF/Frames](LF/Frames) in order to generate and save a corresponding video at [LF/Videos](LF/Videos).
 
-
 ## References
+
 [1] Light Field Toolbox for Matlab, available at https://dgd.vision/Tools/LFToolbox/
+
 [2] our lightfield dataset link
