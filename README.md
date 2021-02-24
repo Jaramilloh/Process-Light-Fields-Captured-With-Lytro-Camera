@@ -67,7 +67,7 @@ Therefore, the program will decodify each .lfp file at [LF folder](LF/), correct
 
 ### Angular and Spatial Downsampling
 
-[angular_spatial_downsampling.py](angular_spatial_downsampling.py) will angular and spatial downsample all light fields inside the directory [LF/Frames](LF/Frames), and then, save the results inside the directory [LF/Frames_Angular_Spatial_Downsampled](LF/Frames_Angular_Spatial_Downsampled).
+[angular_spatial_downsampling.py](angular_spatial_downsampling.py) will angular and spatial downsample all original light fields inside the directory [LF/Frames](LF/Frames), and then, save the results inside the directory [LF/Frames_Angular_Spatial_Downsampled](LF/Frames_Angular_Spatial_Downsampled).
 
 This code will process the sub-aperture images of each light field by spatial downsampling by some given factor, therefore, angular downsampling by some factor given by the original angular resolution and the downsampled angular resolution, moreover, a spatial downsampling is applied for each angular matrix compound at each spatial point of the light field. Finally, the new downsampled sub-aperture images will be synthesize and thus, saved at [LF/Frames_Angular_Spatial_Downsampled](LF/Frames_Angular_Spatial_Downsampled). 
 
@@ -86,7 +86,7 @@ This code will process the sub-aperture images of each light field by spatial do
 ![angular portion](LF/Angular/IMG_0001_downsampled/IMG_0001_001.png)
 
 ### Spatial Downsampling
-[downscaling.m](downscaling.m) is a code with the purpose to downsample the sub-aperture images of each light field implementing an anttialiasing frequency filter in order to downsampling in a factor of 4.
+[downscaling.m](downscaling.m) is a code with the purpose to downsample the sub-aperture images of each light field implementing an anttialiasing frequency filter in order to downsampling in a factor of 4, The results are saved at [LF/Frames](LF/Frames), ending with '_downsampled'.
 
 ### Video Maker
 [video_maker.py](video_maker.py) is a code to convert the sub-aperture images sequences into a video format, just for practical visualization of each light field as a sequence of images.
