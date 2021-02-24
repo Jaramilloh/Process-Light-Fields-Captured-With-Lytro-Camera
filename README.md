@@ -77,11 +77,11 @@ Therefore, the program will decodify each .lfp file placed in the LF folder, cor
 
 Also, it will synthesize the complete original light field structure arranged by its angular resolution at each spatial point, and its equivalent but angular and spatial downsampled.
 
-**Light Field Structure stuv**
+**Light Field Structure *stuv***
 
 ![LF1](LF/LF_stuv/IMG_0001/IMG_0001_stuv.png)
 
-**Angular-Spatial Downsampled Light Field Structure stuv**
+**Angular-Spatial Downsampled Light Field Structure *stuv***
 
 ![LF2](LF/LF_stuv/IMG_0001_asdownsampled/IMG_0001_asdownsampled_stuv.png)
 
