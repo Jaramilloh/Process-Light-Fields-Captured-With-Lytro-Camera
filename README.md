@@ -14,7 +14,8 @@ Table of Contents
    * [Light Field Toolbox For MATLAB](#Light-Field-Toolbox-For-MATLAB)
    * [Calibration Data](#Calibration-Data)
    * [Sub-aperture Images Extraction](#Sub-aperture-Images-Extraction)
-   * [Other Processing Options](#Other-Processing-Options)
+   * [Angular and Spatial Downsampling](#Angular-and-Spatial-Downsampling)
+   * [Other Minor Processing Options](#Other-Processing-Options)
       * [Angular Portion Extraction](#Angular-Portion-Extraction)
       * [Spatial Downsampling](#Spatial-Downsampling)
       * [Video Maker](#Video-Maker)
@@ -64,8 +65,13 @@ Therefore, the program will decodify each .lfp file at [LF folder](LF/), correct
 
 ![video](LF/Videos/IMG_0001_video_gif.gif)
 
+### Angular and Spatial Downsampling
 
-## Other Processing Options
+[angular_spatial_downsampling.py](angular_spatial_downsampling.py) will angular and spatial downsample all light fields inside the directory [LF/Frames](LF/Frames), and then, save the results inside the directory [LF/Frames_Angular_Spatial_Downsampled](LF/Frames_Angular_Spatial_Downsampled).
+
+This code will process the sub-aperture images of each light field by spatial downsampling by some given factor, therefore, angular downsampling by some factor given by the original angular resolution and the downsampled angular resolution, moreover, a spatial downsampling is applied for each angular matrix compound at each spatial point of the light field. Finally, the new downsampled sub-aperture images will be synthesize and thus, saved at [LF/Frames_Angular_Spatial_Downsampled](LF/Frames_Angular_Spatial_Downsampled). 
+
+## Other Minor Processing Options
 
 ### Angular Portion Extraction
 
