@@ -88,7 +88,7 @@ Since we're implementing an antialising filter for each downsampling process, th
 ![angular portion](LF/Angular/IMG_0001_downsampled/IMG_0001_001.png)
 
 ### Spatial Downsampling
-[downscaling.m](downscaling.m) is a code with the purpose to downsample the sub-aperture images of each light field implementing an anttialiasing frequency filter in order to downsampling in a factor of 4, The results are saved at [LF/Frames](LF/Frames), ending with '_downsampled'.
+[spatial_downsampling.m](spatial_downsampling.m) is a code with the purpose to downsample the sub-aperture images of each light field implementing an anttialiasing frequency filter in order to downsampling in a factor of 4, The results are saved at [LF/Frames](LF/Frames), ending with '_downsampled'.
 
 ### Video Maker
 [video_maker.py](video_maker.py) is a code to convert the sub-aperture images sequences into a video format, just for practical visualization of each light field as a sequence of images.

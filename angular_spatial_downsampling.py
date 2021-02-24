@@ -12,6 +12,25 @@ import cv2
 import numpy as np
 import math
 from matplotlib import pyplot as plt
+import time
+
+def LFuvst(imgs, st_hr, pth_LFuvst, folder):
+  # Construct a spatial image with each spatial point compund by the angular
+  # matrix corresponding to that u,v coordinate
+  lfimg = np.zeros((imgs[0].shape[0]*st_hr, imgs[0].shape[1]*st_hr, 3), np.uint8)
+  for u in range(imgs[0].shape[0]):
+    print('.', end="")
+    for v in range(imgs[0].shape[1]):
+      i = 0
+      for s in range(st_hr):
+        for t in range(st_hr):
+          img = imgs[i]
+          lfimg[(u*st_hr+s),(v*st_hr+t), :] = img[u, v, :]
+          i += 1
+  if not os.path.exists(pth_LFuvst+folder):
+    os.makedirs(pth_LFuvst+folder)
+  name = pth_LFuvst + folder + '/' + folder + '_stuv.png'
+  cv2.imwrite(name, lfimg)
 
 def FrequencyFilterin(img, factor):
   h, w = img.shape[:2]
@@ -46,7 +65,7 @@ def SpatialDownsampling(img, factor):
 def lcm(a, b):
   return abs(a*b) // math.gcd(a, b)
 
-def AngularDownsampling(imgs, st_hr, st_lr):
+def AngularDownsampling(imgs, st_hr, st_lr, pth_LFuvst, folder):
   # if downsampling factor is rational or no
   if st_hr%st_lr != 0:
     upfactor = int((lcm(st_hr, st_lr))/st_hr)
@@ -58,26 +77,26 @@ def AngularDownsampling(imgs, st_hr, st_lr):
   # Extract angular matrices for a single spatial point and then downsampling it
   angular_mtcs = []
   for u in range(imgs[0].shape[0]):
+    print('.', end="")
     for v in range(imgs[0].shape[1]):
       a_mtx = np.zeros((st_hr, st_hr, 3), np.uint8)
       i = 0
-      print('')
       for s in range(st_hr):
         for t in range(st_hr):
           img = imgs[i]
           a_mtx[s, t, :] = img[u, v, :]
-          # angular downsampling
-          if rat_int == True:
-            amtx = cv2.resize(a_mtx, (0,0), fx=upfactor, fy=upfactor, interpolation=cv2.INTER_CUBIC)
-          else:
-            amtx = a_mtx
-          amtx_dwn = SpatialDownsampling(amtx, dwnfactor)     
           i += 1
-          print('.', end="")
+      # angular downsampling
+      #if rat_int == True:
+        #amtx = cv2.resize(a_mtx, (0,0), fx=upfactor, fy=upfactor, interpolation=cv2.INTER_CUBIC)
+      #else:
+        #amtx = a_mtx
+      #amtx_dwn = SpatialDownsampling(amtx, dwnfactor)
+      amtx_dwn = a_mtx[::2, ::2, :]
       angular_mtcs.append(amtx_dwn)
   return angular_mtcs
 
-def SynthesizeImgs(a_mtxdwn, st_lr, factor, h, w, pth, folder):
+def SynthesizeImgs(a_mtxdwn, st_lr, factor, h, w, pth_frames, pth_LFuvst, folder):  
   # Once downsampled every angular matrix, we can proceed to sythesize the sub-aperture images
   imgs_new = []
   for s in range(st_lr):
@@ -93,6 +112,15 @@ def SynthesizeImgs(a_mtxdwn, st_lr, factor, h, w, pth, folder):
       #plt.show()      
       print('.', end="")
       imgs_new.append(img)
+
+  print("Saving angular spatial downsampled light field structure stuv into %s " % ((pth_LFuvst+folder+'_asdownsampled')), end="")
+  LFuvst(imgs_new, st_lr, pth_LFuvst, (folder+'_asdownsampled'))
+  print()
+  print("done")  
+
+  print("Saving new sub-aperture images into %s " % ((pth_frames+folder+'_asdownsampled...'))) 
+  if not os.path.exists(pth_frames+folder+'_asdownsampled'):
+    os.makedirs(pth_frames+folder+'_asdownsampled')
   cont = 1
   i = 0
   for s in range(st_lr):
@@ -110,15 +138,20 @@ def SynthesizeImgs(a_mtxdwn, st_lr, factor, h, w, pth, folder):
     for t in range(init, finish, step):
       dec = int(cont/10)
       und = cont%10 
-      name = pth + folder + '/' + str(dec) + str(und) + '_' + str(s) + '_' + str(t) + '_' + folder + '.png'
+      name = pth_frames + folder + '_asdownsampled' + '/' + folder + '_' + str(dec) + str(und) + '_' + str(s+1) + '_' + str(t+1) + '.png'
       cv2.imwrite(name, auxx[j])
       cont+=1
       j += 1
       print('.', end="")
     i += st_lr
+  print()
+  print("done")  
 
-pth_frames = os.getcwd() + '/LF/Frames/' # Input LF directory
-pth_dwn = os.getcwd() + '/LF/Frames_Angular_Spatial_Downsampled/' # Output LF directory
+
+# Path withl LF subimages
+pth_frames = os.getcwd() + '/LF/Frames/'
+# Path to save original LF organized by stuv coordinates
+pth_LFuvst = os.getcwd() + '/LF/LF_stuv/'
 
 f_list = os.listdir(pth_frames)
 LRfolders = []
@@ -138,40 +171,54 @@ st_hr, st_lr = 9, 5 # original angular resolution, downsampled angular resolutio
 
 for folder in HRfolders:
 
+  start_time = time.time()
   print("\nProcessing light field %s " % (folder))
   subimgs_list = glob.glob(pth_frames+folder+'/*.png')
   subimgs_list.sort()
-  if not os.path.exists(pth_dwn+folder):
-    os.makedirs(pth_dwn+folder)
 
   appnd = [f[-7:] for f in subimgs_list]
   appnd.sort()
 
-  imgs = []
-  print("Spatial downsampling by factor of %d " % (factor), end="")
+  print("Spatial downsampling by factor of %d " % (factor))
+  imgshr = []
+  imgslr = []
+  if not os.path.exists(pth_frames+folder+'_sdownsampled'):
+    os.makedirs(pth_frames+folder+'_sdownsampled')
+  print("Saving results at %s " % ((pth_frames+folder+'_sdownsampled')), end="") 
   for i in appnd:
     for f in subimgs_list:
       if i in f[-7:]:
         imghr = cv2.imread(f)
+        imgshr.append(imghr)
         h, w, _ = imghr.shape
         imglr = SpatialDownsampling(imghr, factor)
+        name = pth_frames+folder+'_sdownsampled/' + f[-19:]
+        cv2.imwrite(name, imglr)
         #plt.figure()
         #plt.imshow(imglr)
         #plt.show()
-        imgs.append(imglr)
+        imgslr.append(imglr)
         print('.', end="")
-        break
+        break  
   print()
   print("done")
 
-  print("Angular downsampling from %d to %d " % (st_hr, st_lr), end="")
-  a_mtxdwn = AngularDownsampling(imgs, st_hr, st_lr)
+  print("Saving original light field structure stuv into %s ..." % ((pth_LFuvst + folder)), end="")
+  LFuvst(imgshr, st_hr, pth_LFuvst, folder)
+  imgshr = 0
+  print('')
+  print("done")
+
+  print("Angular downsampling from %d to %d ..." % (st_hr, st_lr), end="")
+  a_mtxdwn = AngularDownsampling(imgslr, st_hr, st_lr, pth_LFuvst, folder)
+  imgslr = 0
+  print('')
+  print("done")
+
+  print("Saving new sub-aperture images into %s " % (pth_frames+folder+'_downsampled...'), end="")  
+  SynthesizeImgs(a_mtxdwn, st_lr, factor, h, w, pth_frames, pth_LFuvst, folder)
   print()
   print("done")
 
-  print("Saving new sub-aperture images into %s " % (pth_dwn+folder), end="")  
-  SynthesizeImgs(a_mtxdwn, st_lr, factor, h, w, pth_dwn, folder)
-  print()
-  print("done")
-
+  print("--- Elapsed time: %s seconds ---" % (time.time() - start_time))
   #sys.exit("aa! errors!")
