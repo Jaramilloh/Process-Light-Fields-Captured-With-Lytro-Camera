@@ -16,8 +16,6 @@ Table of Contents
    * [Sub-aperture Images Extraction](#Sub-aperture-Images-Extraction)
    * [Angular and Spatial Downsampling](#Angular-and-Spatial-Downsampling)
    * [Other Minor Processing Options](#Other-Processing-Options)
-      * [Angular Portion Extraction](#Angular-Portion-Extraction)
-      * [Spatial Downsampling](#Spatial-Downsampling)
       * [Video Maker](#Video-Maker)
    * [References](#References)
       * 
