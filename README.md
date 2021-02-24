@@ -33,9 +33,9 @@ In order to obtain the calibration data from you camera, it is required some pre
 
 * Second, you have to capture some calibration light fields of some checkerboard, the more corners and smallest squares, the better results. This repository contains 9 [calibration light fields](Cameras/sn-A102430881/CalSamples) captured on a checkerboard with 19x22 cornes and 4mm square size. Save calibration light fields at [Cameras/sn-A102430881/CalSamples](Cameras/sn-A102430881/CalSamples) if you want to use your own samples.
 
-Once your camera calibration data and your calibration light fields are on place, you'll just need to run [calibration.m](calibration.m) to adquire the calibration data; camera matrix and distortion parameters. The program will automatically save the next files in their corresponding paths: [CallInfo.json at Cameras/sn-A102430881/CalSamples/](Cameras/sn-A102430881/CalSamples), [CalibrationDatabase.mat at Cameras/](Cameras/) for rectify purposes and [WhiteImageDatabase.mat at Cameras/](Cameras/) for decoding and color correction purposes. 
+Once your camera calibration data and your calibration light fields are on place, you'll just need to run [calibration.m](calibration.m) to adquire the calibration data; camera matrix and distortion parameters. The program will automatically save the next files in their corresponding paths: CallInfo.json at [Cameras/sn-A102430881/CalSamples/](Cameras/sn-A102430881/CalSamples/CallInfo.json), CalibrationDatabase.mat at [Cameras/](Cameras/CalibrationDatabase.mat) for rectify purposes and WhiteImageDatabase.mat at [Cameras/](Cameras/WhiteImageDatabase.mat) for decoding and color correction purposes. 
 
-Before extracting the previous files, you have to specify via GUI the Light Field Toolbox path, beign [LFToolbox0.5/](LFToolbox0.5/) in this repository. Also, this repository contains both rectify and decoding calibration data already extracted, so feel free to use them as well.
+Before extracting the previous files, you have to specify via GUI the Light Field Toolbox path, beign [LFToolbox0.5/](LFToolbox0.5/) in this repository. Also, this repository contains both [rectify](Cameras/sn-A102430881/CalSamples/CallInfo.json) and [decoding](Cameras/WhiteImageDatabase.mat) calibration data already extracted, so feel free to use them as well.
 
 **Calibration Light Field Thumb**
 
@@ -46,11 +46,11 @@ Before extracting the previous files, you have to specify via GUI the Light Fiel
 ![Calibration Rectified](Cameras/sn-A102430881/CalSamples/raw2_rectified_Decoded_Thumb.png)
 
 ## Sub-aperture Images Extraction
-Once calibration data is available, you can proceed to process your own captured light fields. Place these light fields at the [LF folder](LF/). Then, you just have to run [subimgs_extraction.m](subimgs_extraction.m). 
+Once calibration data is available, you can proceed to process your own captured light fields. Place these light fields at the LF folder [LF/](LF/). Then, you just have to run [subimgs_extraction.m](subimgs_extraction.m). 
 
-This program will ask you first to select the [Light Field Toolbox path](LFToolbox0.5), then, it will ask you to select the [LF folder path](LF/), finally, it will ask you to select the [CallInfo.json file's path](Cameras/sn-A102430881/CalSamples/CalInfo.json).
+This program will ask you first to select the Light Field Toolbox path, [LFToolbox0.5/](LFToolbox0.5) in this repository, then, it will ask you to select the LF folder path [LF/](LF/), and finally, it will ask you to select the [CallInfo.json file's path](Cameras/sn-A102430881/CalSamples/CalInfo.json).
 
-Therefore, the program will decodify each .lfp file at [LF folder](LF/), correcting the color on it and rectifying the scene. Then, it will extract a [mosaic](LF/Mosaicos/) image and the [sub-aperture images](LF/Frames) as well.
+Therefore, the program will decodify each .lfp file placed in the LF folder, correcting the color on it and rectifying the scene. Then, it will extract a mosaic image, saving it in [LF/Mosaicos/](LF/Mosaicos/) image, and then, it will extract the sub-aperture images, saving it at [LF/Frames](LF/Frames) as well.
 
 **Light Field Central View Thumb (Color corrected and rectified)**
 
