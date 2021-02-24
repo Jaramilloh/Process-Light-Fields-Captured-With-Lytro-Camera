@@ -62,15 +62,31 @@ Therefore, the program will decodify each .lfp file at [LF folder](LF/), correct
 
 **Sub-aperture Images as Sequence of Images**
 
-![video](LF/Videos/IMG_0001_video_gif.gif)
+![video1](Resources/IMG_0001_video.gif)
 
 ### Angular and Spatial Downsampling
 
-[angular_spatial_downsampling.py](angular_spatial_downsampling.py) will angular and spatial downsample all original light fields inside the directory [LF/Frames](LF/Frames), and then, it will save the results inside the same directory but creating new sub-folders, corresponding to the sub-aperture images spatial downsampled ([example: LF/Frames/IMG_0001_sdownsampled](LF/Frames/IMG_0001_sdownsampled)) and angular spatial downsampled ([example: LF/Frames/IMG_0001_asdownsampled](LF/Frames/IMG_0001_asdownsampled)). Also, it will synthesize a complete original light field structure arranged by its angular resolution at each spatial point ([example: LF/LF_stuv/IMG_0001](LF/LF_stuv/IMG_0001)), and its counterpart angular and spatial downsampled ([example: LF/LF_stuv/IMG_0001](LF/LF_stuv/IMG_0001_asdownsampled)).
+[angular_spatial_downsampling.py](angular_spatial_downsampling.py) will angular and spatial downsample all original light fields inside the directory [LF/Frames](LF/Frames), and then, it will save the results inside the same directory but creating new sub-folders, corresponding to the sub-aperture images spatial downsampled ([example: LF/Frames/IMG_0001_sdownsampled](LF/Frames/IMG_0001_sdownsampled)) and angular spatial downsampled ([example: LF/Frames/IMG_0001_asdownsampled](LF/Frames/IMG_0001_asdownsampled)). 
 
-This code will process the sub-aperture images of each light field by spatial downsampling by some given factor, therefore, angular downsampling by some factor given by the original angular resolution and the downsampled angular resolution, moreover, a spatial downsampling is applied for each angular matrix compound at each spatial point of the light field. Finally, the new downsampled sub-aperture images will be synthesize and thus, saved at [LF/Frames_Angular_Spatial_Downsampled](LF/Frames_Angular_Spatial_Downsampled). 
+**Spatial Downsampled Sub-aperture Images as Sequence of Images**
 
-Since we're implementing an antialising filter for each downsampling process, this code will take serious time processing each light field.
+![video2](Resources/IMG_0001_sdownsampled_video.gif)
+
+**Angular-Spatial Downsampled Sub-aperture Images as Sequence of Images**
+
+![video3](Resources/IMG_0001_asdownsampled_video.gif)
+
+Also, it will synthesize the complete original light field structure arranged by its angular resolution at each spatial point ([example: LF/LF_stuv/IMG_0001](LF/LF_stuv/IMG_0001)), and its equivalent but angular and spatial downsampled ([example: LF/LF_stuv/IMG_0001](LF/LF_stuv/IMG_0001_asdownsampled)).
+
+**Light Field Structure stuv**
+
+![LF1](LF/LF_stuv/IMG_0001/IMG_0001_stuv.png)
+
+**Angular-Spatial Downsampled Light Field Structure stuv**
+
+![LF2](LF/LF_stuv/IMG_0001/IMG_0001_asdownsampled_stuv.png)
+
+Moreover, this code will process the sub-aperture images of each light field by spatial downsampling it by some given factor, therefore, angular downsampling it by some factor given by the original angular resolution and the desired downsampled angular resolution. Since we're implementing an antialising frequency filter for each downsampling process, this code will take serious time processing each light field.
 
 ## Other Minor Processing Options
 
