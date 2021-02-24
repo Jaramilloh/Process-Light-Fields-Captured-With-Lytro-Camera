@@ -71,6 +71,8 @@ Therefore, the program will decodify each .lfp file at [LF folder](LF/), correct
 
 This code will process the sub-aperture images of each light field by spatial downsampling by some given factor, therefore, angular downsampling by some factor given by the original angular resolution and the downsampled angular resolution, moreover, a spatial downsampling is applied for each angular matrix compound at each spatial point of the light field. Finally, the new downsampled sub-aperture images will be synthesize and thus, saved at [LF/Frames_Angular_Spatial_Downsampled](LF/Frames_Angular_Spatial_Downsampled). 
 
+Since we're implementing an antialising filter for each downsampling process, this code will take serious time processing each light field.
+
 ## Other Minor Processing Options
 
 ### Angular Portion Extraction
