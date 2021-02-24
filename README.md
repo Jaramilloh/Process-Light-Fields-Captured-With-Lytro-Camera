@@ -1,5 +1,5 @@
 # Process-Light-Fields-Captured-with-Lytro-Camera
-This repository contains the source code and materials for processing light fields captured with a First Generation Lytro Camera, the [Light Field Toolbox for MATLAB](https://dgd.vision/Tools/LFToolbox/) (*with [license](LFToolbox0.5/LICENSE.txt) [1]*) is implemented in order to [decode, color correct and rectify](calibration.m) each light field in preparation for [obtain the sub-aperture images](subimgs_extraction.m). Also, an [angular spatial light field downsampling](angular_spatial_downsampling.py) code is implemented.
+This repository contains the source code and materials for processing light fields captured with a First Generation Lytro Camera, the [Light Field Toolbox for MATLAB](https://dgd.vision/Tools/LFToolbox/) (*with [license](LFToolbox0.5/LICENSE.txt) [1]*) is implemented in order to [decode, color correct and rectify](calibration.m) each light field in preparation to [obtain the sub-aperture images](subimgs_extraction.m). Also, an [angular spatial light field downsampling](angular_spatial_downsampling.py) code is implemented.
 
 Moreover, this repository only contains two captured light fields as examples, the full dataset is avalible at [asdasd](asdasd) [2].
 
