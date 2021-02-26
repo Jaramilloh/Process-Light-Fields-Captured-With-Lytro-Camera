@@ -99,15 +99,15 @@ for j = 1:( length( fileList ) )
             % Loop for horizontal angular coordinate
             fprintf('\nExtracting image sequence...' );
             cont = 1;
-            for s = 1:9
+            for s = 1:10 % set angular resolution to extract
 
                 % Starting conditions for the vertical angular coordinate
                 if mod((s+1),2) == 0
                     init = 1;
-                    finish = 9;
+                    finish = 10; % set angular resolution to extract
                     step = 1;
                 else
-                    init = 9;
+                    init = 10; % set angular resolution to extract
                     finish = 1;
                     step = -1;
                 end
@@ -116,31 +116,33 @@ for j = 1:( length( fileList ) )
                 for t = init:step:finish
 
                     % The name of the file to save is defined
-                    dec = fix( cont/10 );
+                    cen = fix( cont/100 );
+                    dec = fix( mod(cont,100)/10 );
                     und = mod( cont,10 );
+
+                    s_dec = fix( s/10 );
+                    s_und = mod( s,10 );
+
+                    t_dec = fix( t/10 );
+                    t_und = mod( t,10 );
+                    
                     aux = append( folder, '/Frames/',fileList(j).name(1:8),'/',fileList(j).name(1:8) );
-                    auxx = append( '_',string(dec),string(und),'_', string(s),'_',string(t),'.png' );
+                    auxx = append( '_',string(cen),string(dec),string(und),'_',string(s_dec),string(s_und),'_',string(t_dec),string(t_und),'.png' );
                     sbname = append(aux, auxx);
 
                     % Obtain a subimage at angular position 's, t'
-                    I = LFDisp( LF((t+1),(s+1),:,:,:) );
+                    I = LFDisp( LF((t),(s),:,:,:) );
 
-                    % Remove borders -> obtain spatial image of 376 x 376
-                    [rows, cols, ch] = size( I );
-                    
-                    if (mod(rows, 2) ~= 0) && (mod(cols, 2) ~= 0)
-                        F = I( 2:end-2,2:end-2,:);
-                    elseif (mod(rows, 2) == 0) && (mod(cols, 2) ~= 0)
-                        F = I( 2:end-1,2:end-2,:);
-                    elseif (mod(rows, 2) ~= 0) && (mod(cols, 2) == 0)
-                        F = I( 2:end-2,2:end-1,:);
-                    end
-                    
-                    %F = I( 2:end-2,2:end-2,:);
-                    %F = I;
+                    % Crop sub-aperture image -> obtain spatial image of
+                    % 256x256
+                    [h, w, c] = size( I );
+                    F = I( (fix(h/2)-127):(fix(h/2)+128), (fix(w/2)-127):(fix(w/2)+128),:);
+               
+                    % Apply a bilateral filter to clean noise
+                    J = imbilatfilt(F);
                     
                     % The subaperture image is saved
-                    imwrite( F, sbname );
+                    imwrite( J, sbname );
 
                     cont = cont + 1;
 
