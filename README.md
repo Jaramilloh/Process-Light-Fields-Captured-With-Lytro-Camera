@@ -1,5 +1,5 @@
 # Process-Light-Fields-Captured-with-Lytro-Camera
-This repository contains the source code and materials for processing light fields captured with a First Generation Lytro Camera, the [Light Field Toolbox for MATLAB](https://dgd.vision/Tools/LFToolbox/) (*with [license](LFToolbox0.5/LICENSE.txt) [1]*) is implemented in order to [decode, color correct and rectify](calibration.m) each light field in preparation to [obtain the sub-aperture images](subimgs_extraction.m). Also, an [angular spatial light field downsampling](angular_spatial_downsampling.py) code is implemented.
+This repository contains the source code and materials for processing light fields captured with a First Generation Lytro Camera, the [Light Field Toolbox for MATLAB](https://dgd.vision/Tools/LFToolbox/) (*with [license](LFToolbox0.5/LICENSE.txt) [1]*) is implemented in order to [decode, color correct and rectify](calibration.m) each light field in preparation to [obtain the sub-aperture images](subimgs_extraction.m). Also, an [angular light field downsampling](procesamiento_LF.py) code is implemented in order to create a dataset to train a deep neural network.
 
 Moreover, this repository only contains two captured light fields as examples, the full dataset is avalible at [asdasd](asdasd) [2].
 
@@ -14,9 +14,7 @@ Table of Contents
    * [Light Field Toolbox For MATLAB](#Light-Field-Toolbox-For-MATLAB)
    * [Calibration Data](#Calibration-Data)
    * [Sub-aperture Images Extraction](#Sub-aperture-Images-Extraction)
-   * [Angular and Spatial Downsampling](#Angular-and-Spatial-Downsampling)
-   * [Other Minor Processing Options](#Other-Processing-Options)
-      * [Video Maker](#Video-Maker)
+   * [Angular Downsampling](#Angular-Downsampling)
    * [References](#References)
       * 
 <!--te-->
@@ -49,21 +47,17 @@ The program will automatically save the next files in their corresponding paths:
 
 Once calibration data is available, you can proceed to process your own captured light fields. Place these light fields at the LF folder [LF/](LF/). Then, you just have to run [subimgs_extraction.m](subimgs_extraction.m). This program will ask you first to select the Light Field Toolbox path ([LFToolbox0.5/](LFToolbox0.5) in this repository), then, it will ask you to select the LF folder path [LF/](LF/), and finally, it will ask you to select the [CallInfo.json file's path](Cameras/sn-A102430881/CalSamples/CalInfo.json).
 
-Therefore, the program will decodify each .lfp file placed in the LF folder, correcting the color on it and rectifying the scene. Then, it will extract a mosaic image, saving it at [LF/Mosaicos/](LF/Mosaicos/), and then, it will extract the sub-aperture images, saving it at [LF/Frames](LF/Frames) as well. Note: This code actually crops the center of each sub-aperture image to 256x256 dimensions.
+Therefore, the program will decodify each .lfp file placed in the LF folder, correcting the color on it and rectifying the scene. Then, it will extract a mosaic image, which is composed by the sub-aperture images, therefore, saving these at [LF/Frames](LF/Frames). Note: This code actually crops the center of each sub-aperture image to 256x256 dimensions.
 
 **Light Field Central View Thumb (Color corrected and rectified)**
 
 ![LF_thumb](LF/IMG_0001__Decoded_Thumb.png)
 
-**Mosaic Image**
-
-![mosaic](LF/Mosaicos/IMG_0001_stuv.png)
-
 **Sub-aperture Images as Sequence of Images**
 
 ![video1](Resources/IMG_0001_video.gif)
 
-### Angular and Spatial Downsampling
+### Angular Downsampling
 
 [angular_spatial_downsampling.py](angular_spatial_downsampling.py) will angular and spatial downsample all original sub-aperture images inside the directory [LF/Frames](LF/Frames), extracted from before. The program will save the results inside the same directory but creating new sub-folders, corresponding to the sub-aperture images spatial downsampled (example: [LF/Frames/IMG_0001_sdownsampled](LF/Frames/IMG_0001_sdownsampled)) and angular spatial downsampled (example: [LF/Frames/IMG_0001_asdownsampled](LF/Frames/IMG_0001_asdownsampled)). 
 
