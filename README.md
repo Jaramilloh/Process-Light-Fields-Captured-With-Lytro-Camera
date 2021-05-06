@@ -83,7 +83,7 @@ Also, it will synthesize the complete original light field structure arranged by
 
 ![LF4](LF/LF_uvst/IMG_0001_adownsampled/IMG_0001_adownsampled_uvst.png)
 
-Moreover, this code will interpolate the angular downsampled pixel matrix via nearest, bicubic and lanczos interpolation, synthesizing the corresponding new sub-aperture images, thus comparing our implemented super-resolution model with these results. Finally, this code will generate a .mp4 video for each LF represented as sub-aperture images.
+This code will generate a [.h5 dataset](https://drive.google.com/uc?id=1FkXZCNqhB57jSXJXwZC0nuWHVbpDKGPY) file with random selected HR and LR angular matrices for each light field in order to train a deep learning network to super resolve the angular resolution of a light field. Moreover, this code will interpolate the angular downsampled pixel matrix via nearest, bicubic and lanczos interpolation, synthesizing the corresponding new sub-aperture images, thus comparing our implemented super-resolution model with these results. Finally, this code will generate a .mp4 video for each LF represented as sub-aperture images.
 
 ## References
 
