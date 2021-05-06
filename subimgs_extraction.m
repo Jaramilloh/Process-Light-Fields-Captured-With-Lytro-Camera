@@ -25,10 +25,10 @@ folder = uigetdir( );
 fileList = dir( fullfile( folder, '*.lfp' ) );
 
 % Tiled subaperture images Folder is created inside the folder containing LFs
-aux = append( folder, '/Mosaicos/' );
-if ~exist(aux, 'dir')
-    mkdir(aux);
-end
+%aux = append( folder, '/Mosaicos/' );
+%if ~exist(aux, 'dir')
+    %mkdir(aux);
+%end
 
 % Subaperture images Folder is created inside the folder containing LFs
 aux = append( folder, '/Frames/' );
@@ -85,8 +85,8 @@ for j = 1:( length( fileList ) )
             I = LFDisp( subaperture );
 
             % Tiled subaperture images are saved
-            fname = append( folder, '/Mosaicos/', fileList(j).name(1:8), '_stuv.png' );
-            imwrite( I, fname );
+            %fname = append( folder, '/Mosaicos/', fileList(j).name(1:8), '_stuv.png' );
+            %imwrite( I, fname );
 
             % A folder containing the subaperture images is created for
             % each LF
