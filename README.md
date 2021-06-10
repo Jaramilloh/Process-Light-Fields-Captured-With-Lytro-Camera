@@ -89,4 +89,15 @@ This code will generate a [.h5 dataset](https://drive.google.com/uc?id=1FkXZCNqh
 
 [1] Light Field Toolbox for Matlab, available at https://dgd.vision/Tools/LFToolbox/
 
-[2] our lightfield dataset link
+[2] F. J. Hernandez, “Plants captured with lytro 1st gen  dataset,” May2021. [Online]. Available: https://osf.io/qrm2x/?viewonly=76068daaca72497fa6bce50bb3fc0ccb
+
+
+To cite this work:
+@misc{Jaramillo2021,
+  author = {Jaramillo H., Juan F.},
+  title = {Process Light Fields Captured with Lytro Camera},
+  year = {2021},
+  publisher = {GitHub},
+  journal = {GitHub repository},
+  howpublished = {\url{https://github.com/Jaramilloh/Process-Light-Fields-Captured-With-Lytro-Camera}}
+}
