@@ -93,11 +93,11 @@ This code will generate a [.h5 dataset](https://drive.google.com/uc?id=1FkXZCNqh
 
 
 To cite this work:
-@misc{Jaramillo2021,
-  author = {Jaramillo H., Juan F.},
-  title = {Process Light Fields Captured with Lytro Camera},
-  year = {2021},
-  publisher = {GitHub},
-  journal = {GitHub repository},
-  howpublished = {\url{https://github.com/Jaramilloh/Process-Light-Fields-Captured-With-Lytro-Camera}}
+@misc{Jaramillo2021a,
+title={{Process Light Fields Captured with Lytro Camera}},
+url={https://github.com/Jaramilloh/Process-Light-Fields-Captured-With-Lytro-Camera},
+publisher={GitHub},
+author={Jaramillo, Felipe},
+year={2021},
+month={May}
 }
